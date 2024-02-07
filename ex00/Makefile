@@ -19,7 +19,7 @@ _RED = \033[31m
 _END = \033[0m
 _BOLD = \033[1m
 
-NAME = Convesion
+NAME = Scalar_Conversion
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = @rm -rf
 CC = @c++

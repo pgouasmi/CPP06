@@ -48,11 +48,12 @@ static void displayInt(double nb)
 {
 	int iresult = static_cast<int>(nb);
 
-//	std::cout << iresult << std::endl;
 
 	std::cout << "int: ";
-	if (nb > INT_MAX || nb < INT_MIN || nb != nb)
+	if (nb != nb)
 		std::cout << "impossible" << std::endl;
+	else if (nb > INT_MAX || nb < INT_MIN )
+		std::cout << "overflow" << std::endl;
 	else
 		std::cout << iresult << std::endl;
 }
@@ -60,13 +61,8 @@ static void displayInt(double nb)
 static void displayDouble(double nb)
 {
 	std::cout << "double: ";
-	if (nb > 999999 && nb == nb && !isinf(nb))
-	{
-		std::cout << "impossible" << std::endl;
-		return ;
-	}
 	std::cout << nb;
-	if ((nb - (long)nb) == 0)
+	if ((nb - (long)nb) == 0 && nb < 999999.0)
 		std::cout << ".0";
 	std::cout << std::endl;
 }
@@ -83,7 +79,7 @@ static void	displayChar(double nb)
 	}
 	if (!isprint(cresult))
 	{
-		if (nb < 0 || nb > 177 || nb != nb)
+		if (nb < 0 || nb > 127 || nb != nb)
 			std::cout << "impossible" << std::endl;
 		else
 			std::cout << "Non displayable" << std::endl;
@@ -97,13 +93,8 @@ static void displayFloat(double nb)
 	float fresult = static_cast<float>(nb);
 
 	std::cout << "float: ";
-	if (nb > 999999 && nb == nb && !isinf(nb))
-	{
-		std::cout << "impossible" << std::endl;
-		return ;
-	}
 	std::cout << fresult;
-	if (fresult - static_cast<long>(nb) == 0)
+	if (fresult - static_cast<long>(nb) == 0 && nb < 999999.0)
 		std::cout << ".0";
 	std::cout << "f" << std::endl;
 }
@@ -121,5 +112,4 @@ void ScalarConverter::convert(char *s)
 	displayInt(nb);
 	displayFloat(nb);
 	displayDouble(nb);
-
 }
