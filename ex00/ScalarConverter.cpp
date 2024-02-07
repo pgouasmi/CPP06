@@ -26,9 +26,9 @@ static bool isInputCorrect(char *s, double *nb, char *pEnd)
 	*nb = strtod(s, &pEnd);
 
 	/*checks if the only rest in pEnd is 'f', otherwise the input is wrong*/
-	if (pEnd && pEnd[0] && strlen(pEnd) != 1)
+	if (!s[0] || (pEnd && pEnd[0] && strlen(pEnd) != 1))
 	{
-		std::cout << "Conversion of " << s << " is impossible" << std::endl;
+		std::cout << "Conversion of \'" << s << "\' is impossible" << std::endl;
 		return false;
 	}
 	if (pEnd[0] && pEnd[0] != 'f')
