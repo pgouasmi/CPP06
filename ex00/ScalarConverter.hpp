@@ -23,6 +23,11 @@
 #include <math.h>
 #include <climits>
 
+#define CHAR  1
+#define INT  2
+#define DOUBLE 3
+#define FLOAT 4
+
 
 class ScalarConverter {
 
